@@ -1,5 +1,4 @@
 async function loadQuiz() {
-
     const files = [
         "allmanbildning.json",
         "geografi.json",
@@ -14,16 +13,12 @@ async function loadQuiz() {
     let questions = [];
 
     for (const file of files) {
-
         try {
-
-            console.log("Läser:", file);
-
             const response = await fetch(file);
 
             if (!response.ok) {
                 throw new Error(
-                    `${file} gav status ${response.status}`
+                    `${file} gav HTTP-status ${response.status}`
                 );
             }
 
@@ -33,12 +28,11 @@ async function loadQuiz() {
 
         } catch (error) {
 
-            document.getElementById("category")
-                .textContent = "Fel";
+            document.getElementById("category").textContent =
+                "FEL";
 
-            document.getElementById("question")
-                .textContent =
-                `Fel i ${file}`;
+            document.getElementById("question").textContent =
+                `${file}: ${error.message}`;
 
             console.error(error);
 
@@ -46,24 +40,36 @@ async function loadQuiz() {
         }
     }
 
+    if (questions.length === 0) {
+        document.getElementById("category").textContent =
+            "FEL";
+
+        document.getElementById("question").textContent =
+            "Inga frågor hittades.";
+
+        return;
+    }
+
     const today = new Date();
 
-    const start =
-        new Date(today.getFullYear(), 0, 0);
+    const startOfYear = new Date(
+        today.getFullYear(),
+        0,
+        0
+    );
 
-    const day =
-        Math.floor(
-            (today - start) / 86400000
-        );
+    const dayOfYear = Math.floor(
+        (today - startOfYear) / 86400000
+    );
 
     const question =
-        questions[day % questions.length];
+        questions[dayOfYear % questions.length];
 
-    document.getElementById("category")
-        .textContent = question.category;
+    document.getElementById("category").textContent =
+        question.category;
 
-    document.getElementById("question")
-        .textContent = question.question;
+    document.getElementById("question").textContent =
+        question.question;
 }
 
 loadQuiz();
