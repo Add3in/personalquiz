@@ -1,42 +1,57 @@
-fetch("questions.json")
-  .then(response => response.json())
-  .then(data => {
+async function loadQuiz() {
+    try {
 
-    const today = new Date();
+        const files = [
+            "allmanbildning.json",
+            "geografi.json",
+            "historia.json",
+            "naturvetenskap.json",
+            "it.json",
+            "m365.json",
+            "pedagogik.json",
+            "hjarngympa.json"
+        ];
 
-    const startOfYear = new Date(
-      today.getFullYear(),
-      0,
-      0
-    );
+        let questions = [];
 
-    const diff =
-      today - startOfYear;
+        for (const file of files) {
+            const response = await fetch(file);
+            const data = await response.json();
+            questions = questions.concat(data);
+        }
 
-    const dayOfYear = Math.floor(
-      diff / 86400000
-    );
+        const today = new Date();
 
-    const quiz =
-      data[dayOfYear % data.length];
+        const startOfYear = new Date(
+            today.getFullYear(),
+            0,
+            0
+        );
 
-    document.getElementById("question")
-      .textContent = quiz.question;
+        const dayOfYear = Math.floor(
+            (today - startOfYear) / 86400000
+        );
 
-    document.getElementById("category")
-      .textContent = quiz.category;
+        const question =
+            questions[dayOfYear % questions.length];
 
-  })
-  .catch(error => {
+        document.getElementById("category").textContent =
+            question.category;
 
-    console.error(error);
+        document.getElementById("question").textContent =
+            question.question;
 
-    document.getElementById("question")
-      .textContent =
-        "Kunde inte läsa frågebanken.";
+    } catch (error) {
 
-    document.getElementById("category")
-      .textContent =
-        "Fel";
+        console.error(error);
 
-  });
+        document.getElementById("category").textContent =
+            "Fel";
+
+        document.getElementById("question").textContent =
+            "Kunde inte läsa frågebanken.";
+    }
+}
+
+loadQuiz();
+``
