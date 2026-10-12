@@ -1,1 +1,18 @@
-
+[
+  {
+    "category":"IT",
+    "question":"Vad står VPN för?"
+  },
+  {
+    "category":"Microsoft 365",
+    "question":"Vilken app används främst för digitala möten?"
+  },
+  {
+    "category":"Allmänbildning",
+    "question":"Vilket land har flest tidszoner?"
+  },
+  {
+    "category":"Historia",
+    "question":"Vilket år föll Berlinmuren?"
+  }
+]
