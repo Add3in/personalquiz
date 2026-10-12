@@ -8,21 +8,24 @@ body {
     width: 100vw;
     height: 100vh;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
     overflow: hidden;
 
     background: linear-gradient(
         180deg,
-        #004578 0%,
-        #0078d4 100%
+        #0f4c81 0%,
+        #106ebe 100%
     );
 
     color: white;
 
-    font-family: "Segoe UI", Arial, sans-serif;
+    font-family:
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .container {
@@ -38,50 +41,72 @@ body {
 }
 
 .badge {
-    padding: 1rem 1.8rem;
+
+    display: inline-block;
+
+    padding: 1rem 2rem;
 
     border-radius: 999px;
 
-    background: rgba(255,255,255,0.15);
+    background: rgba(255,255,255,.12);
 
-    font-weight: 600;
+    backdrop-filter: blur(10px);
 
-    font-size: clamp(1rem, 1.8vh, 1.8rem);
+    font-size: clamp(1.1rem,1.8vh,2rem);
 
-    margin-bottom: 2vh;
+    font-weight: 700;
+
+    margin-bottom: 4vh;
 }
 
 .category {
-    font-size: clamp(1.1rem, 1.6vh, 2rem);
+
+    font-size: clamp(1.3rem,2vh,2rem);
+
+    letter-spacing: .15em;
 
     text-transform: uppercase;
 
-    letter-spacing: 0.15em;
+    font-weight: 700;
 
-    opacity: 0.85;
+    opacity: .9;
 
     margin-bottom: 4vh;
 }
 
 .question {
+
     width: 95%;
 
-    font-size: clamp(2.8rem, 4.5vh, 5.8rem);
+    font-size: clamp(3rem,5vh,6rem);
 
-    font-weight: 700;
+    font-weight: 800;
 
     line-height: 1.15;
 
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-
     text-wrap: balance;
+
+    animation: fadeIn .6s ease;
 }
 
 .footer {
+
     margin-top: 5vh;
 
-    opacity: 0.7;
+    opacity: .75;
 
-    font-size: clamp(0.8rem, 1vh, 1.1rem);
+    font-size: clamp(.9rem,1vh,1.2rem);
+}
+
+@keyframes fadeIn {
+
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
