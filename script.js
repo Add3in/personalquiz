@@ -3,7 +3,7 @@ async function loadQuiz() {
         "allmanbildning.json",
         "geografi.json",
         "historia.json",
-        "naturvetenskap.json",
+        "natur.json",
         "it.json",
         "m365.json",
         "pedagogik.json",
