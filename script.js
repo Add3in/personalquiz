@@ -30,8 +30,21 @@ async function loadQuiz() {
             (today - start) / 86400000
         );
 
-    const question =
-        questions[day % questions.length];
+const seed =
+    today.getFullYear() * 1000 + day;
+
+const random =
+    Math.abs(
+        Math.sin(seed) * 10000
+    );
+
+const index =
+    Math.floor(
+        random % questions.length
+    );
+
+const question =
+    questions[index];
 
     const icons = {
         "Geografi": "🌍",
