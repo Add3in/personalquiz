@@ -38,7 +38,7 @@
   {"category":"Geografi","question":"Vilket land har längst kust mot Medelhavet?"},
   {"category":"Geografi","question":"Vilken är Australiens längsta flod?"},
   {"category":"Geografi","question":"Vilket land har huvudstaden Ulan Bator?"},
-  {"category":"Geografi","question":"Vilket land består av över 7 000 öar i Sydostasien?"},
+  {"category":"Geografi","question":"Vilket land består av över 7000 öar i Sydostasien?"},
   {"category":"Geografi","question":"Vilken är Sydamerikas längsta bergskedja?"},
   {"category":"Geografi","question":"Vilken stad delas av floden Moldau?"},
   {"category":"Geografi","question":"Vilket land har världens största korallrev utanför sin kust?"},
@@ -60,7 +60,7 @@
   {"category":"Geografi","question":"Vilket land har världens högst belägna huvudstad?"},
   {"category":"Geografi","question":"Vilken är Nordamerikas längsta flod?"},
   {"category":"Geografi","question":"Vilket land har flest tidszoner?"},
-  {"category":"Geografi","question":"Vilken stad är känt som porten till Sahara?"},
+  {"category":"Geografi","question":"Vilken stad är känd som porten till Sahara?"},
   {"category":"Geografi","question":"Vilken svensk fjällkedja sträcker sig längs gränsen mot Norge?"},
   {"category":"Geografi","question":"Vilken är världens största hamnstad sett till godsvolymer?"},
   {"category":"Geografi","question":"Vilket land har den längsta järnvägen i världen?"},
@@ -75,4 +75,3 @@
   {"category":"Geografi","question":"Vilken stad är byggd kring Bosporen?"},
   {"category":"Geografi","question":"Vilken ocean är den minsta av världshaven?"}
 ]
-``
