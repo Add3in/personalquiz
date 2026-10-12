@@ -1,24 +1,42 @@
 fetch("questions.json")
-.then(r => r.json())
-.then(data => {
+  .then(response => response.json())
+  .then(data => {
 
     const today = new Date();
 
-    const start =
-        new Date(today.getFullYear(),0,0);
+    const startOfYear = new Date(
+      today.getFullYear(),
+      0,
+      0
+    );
 
     const diff =
-        today - start;
+      today - startOfYear;
 
-    const day =
-        Math.floor(diff / 86400000);
+    const dayOfYear = Math.floor(
+      diff / 86400000
+    );
 
     const quiz =
-        data[day % data.length];
+      data[dayOfYear % data.length];
 
     document.getElementById("question")
-        .textContent = quiz.question;
+      .textContent = quiz.question;
 
     document.getElementById("category")
-        .textContent = quiz.category;
-});
+      .textContent = quiz.category;
+
+  })
+  .catch(error => {
+
+    console.error(error);
+
+    document.getElementById("question")
+      .textContent =
+        "Kunde inte läsa frågebanken.";
+
+    document.getElementById("category")
+      .textContent =
+        "Fel";
+
+  });
