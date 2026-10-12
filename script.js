@@ -1,4 +1,5 @@
 async function loadQuiz() {
+
     const files = [
         "allmanbildning.json",
         "geografi.json",
@@ -15,20 +16,40 @@ async function loadQuiz() {
     for (const file of files) {
         const response = await fetch(file);
         const data = await response.json();
+
         questions = questions.concat(data);
     }
 
     const today = new Date();
-    const start = new Date(today.getFullYear(), 0, 0);
-    const day = Math.floor((today - start) / 86400000);
+
+    const start =
+        new Date(today.getFullYear(), 0, 0);
+
+    const day =
+        Math.floor(
+            (today - start) / 86400000
+        );
 
     const question =
         questions[day % questions.length];
 
-    document.getElementById("category").textContent =
-        question.category;
+    const icons = {
+        "Geografi": "🌍",
+        "Historia": "🏛️",
+        "Naturvetenskap": "🔬",
+        "IT": "💻",
+        "Microsoft 365": "📘",
+        "Pedagogik": "🍎",
+        "Hjärngympa": "🧩",
+        "Allmänbildning": "🧠"
+    };
 
-    document.getElementById("question").textContent =
+    document.getElementById("category")
+        .textContent =
+        `${icons[question.category] || "❓"} ${question.category}`;
+
+    document.getElementById("question")
+        .textContent =
         question.question;
 }
 
